@@ -1,0 +1,205 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "output_encoding": "no-op",
+  "name": "dew-org gateway",
+  "endpoints": [
+    {
+      "endpoint": "/customers",
+      "input_headers": [
+        "*"
+      ],
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/customers",
+          "sd": "dns",
+          "encoding": "no-op",
+          "host": [
+            "local"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/customers/{id}",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings":[
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/customers/{id}",
+          "sd": "dns",
+          "encoding": "no-op",
+          "host": [
+            "customers.service.consul"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/catalogue",
+      "input_headers": [
+        "*"
+      ],
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/catalogue",
+          "sd": "dns",
+          "encoding": "no-op",
+          "host": [
+            "catalogue.service.consul"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/catalogue",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/catalogue",
+          "sd": "dns",
+          "encoding": "no-op",
+          "host": [
+            "catalogue.service.consul"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/catalogue/{codeOrSku}",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/catalogue/{codeOrSku}",
+          "sd": "dns",
+          "encoding": "no-op",
+          "host": [
+            "catalogue.service.consul"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/inventory",
+      "input_headers": [
+        "*"
+      ],
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/inventory",
+          "sd": "dns",
+          "encoding": "no-op",
+          "host": [
+            "inventory.service.consul"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/inventory/{codeOrSku}",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/inventory/{codeOrSku}",
+          "sd": "dns",
+          "encoding": "no-op",
+          "host": [
+            "inventory.service.consul"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/invoices",
+      "input_headers": [
+        "*"
+      ],
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/invoices",
+          "encoding": "no-op",
+          "host": [
+            "{{ env "INVOICES_HOST" }}"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/invoices/{id}",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/invoices/{id}",
+          "encoding": "no-op",
+          "host": [
+            "{{ env "INVOICES_HOST" }}"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/invoices",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/invoices",
+          "encoding": "no-op",
+          "host": [
+            "{{ env "INVOICES_HOST" }}"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    }
+  ]
+}
