@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.krakend.io/schema/v3.json",
   "version": 3,
-  "timeout": "3000ms",
+  "timeout": "30000ms",
   "cache_ttl": "300s",
   "output_encoding": "no-op",
   "name": "dew-org gateway",
@@ -196,6 +196,46 @@
           "encoding": "no-op",
           "host": [
             "{{ env "INVOICES_HOST" }}"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/shops",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/shops",
+          "encoding": "no-op",
+          "host": [
+            "{{ env "SHOPS_HOST" }}"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/shops",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/shops",
+          "encoding": "no-op",
+          "host": [
+            "{{ env "SHOPS_HOST" }}"
           ],
           "disable_host_sanitize": true
         }
