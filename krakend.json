@@ -15,7 +15,6 @@
       "backend": [
         {
           "url_pattern": "/customers",
-          "sd": "dns",
           "encoding": "no-op",
           "host": [
             "{{ env "CUSTOMERS_HOST" }}"
@@ -36,7 +35,6 @@
       "backend": [
         {
           "url_pattern": "/customers/{id}",
-          "sd": "dns",
           "encoding": "no-op",
           "host": [
             "{{ env "CUSTOMERS_HOST" }}"
@@ -54,7 +52,6 @@
       "backend": [
         {
           "url_pattern": "/catalogue",
-          "sd": "dns",
           "encoding": "no-op",
           "host": [
             "{{ env "CATALOGUE_HOST" }}"
@@ -75,7 +72,6 @@
       "backend": [
         {
           "url_pattern": "/catalogue",
-          "sd": "dns",
           "encoding": "no-op",
           "host": [
             "{{ env "CATALOGUE_HOST" }}"
@@ -96,7 +92,6 @@
       "backend": [
         {
           "url_pattern": "/catalogue/{codeOrSku}",
-          "sd": "dns",
           "encoding": "no-op",
           "host": [
             "{{ env "CATALOGUE_HOST" }}"
@@ -114,7 +109,6 @@
       "backend": [
         {
           "url_pattern": "/inventory",
-          "sd": "dns",
           "encoding": "no-op",
           "host": [
             "{{ env "INVENTORY_HOST" }}"
@@ -135,7 +129,6 @@
       "backend": [
         {
           "url_pattern": "/inventory/{codeOrSku}",
-          "sd": "dns",
           "encoding": "no-op",
           "host": [
             "{{ env "INVENTORY_HOST" }}"
