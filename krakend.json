@@ -233,6 +233,46 @@
           "disable_host_sanitize": true
         }
       ]
+    },
+    {
+      "endpoint": "/analytics/now",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/analytics/now",
+          "encoding": "no-op",
+          "host": [
+            "{{ env "ANALYTICS_HOST" }}"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/analytics/{date}/{frequency}",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/analytics/{date}/{frequency}",
+          "encoding": "no-op",
+          "host": [
+            "{{ env "ANALYTICS_HOST" }}"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
     }
   ]
 }
